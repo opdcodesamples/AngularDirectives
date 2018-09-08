@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <button
+        class="btn btn-primary"
+        (click)="onlyOdd = !onlyOdd">Only show odd numbers</button>
+      <br><br>
+      <ul class="list-group">
+        <div *ngIf="onlyOdd">
+            <li
+              class="list-group-item" 
+              *ngFor="let number of oddNumbers" 
+              [ngClass]="{ odd: number % 2 != 0}" 
+              [ngStyle]="{ backgroundColor: number % 2 != 0? 'lightGrey' : 'green'}"
+              >
+              {{ number }}
+            </li>
+        </div>
+
+        <!-- see how ng-template can be used for exactly the same thing as above  -->
+        <!-- notice the use of square bracket instead of * inside ng-template -->
+        <ng-template [ngIf]="onlyOdd">
+            <li
+            class="list-group-item" 
+            *ngFor="let number of oddNumbers" 
+            [ngClass]="{ odd: number % 2 != 0}" 
+            [ngStyle]="{ backgroundColor: number % 2 != 0? 'lightGrey' : 'green'}"
+            >
+            {{ number }}
+          </li>
+        </ng-template>
+
+        <div *ngIf="!onlyOdd">    
+            <li
+              class="list-group-item" *ngFor="let number of evenNumbers" [ngClass]="{ even: number % 2 == 0}">
+              {{ number }}
+            </li>
+        </div>
+        
+      </ul>
+      <p appBasicHighlight>Style me with basic directive style...</p>
+      <p appHostlistenerFontColor appHostListenerHighlight>Style me with host listener directive style...</p>
+      
+      <!-- see the difference between property binding and directives -->
+      <p 
+        appHostlistenerFontColor 
+        appHostBindingHighlight 
+        [defaultColor]="'pink'" 
+        [highlightColor]="'green'"
+      >Style me with host binding and listener directive style...</p>
+    </div>
+  </div>
+</div>
