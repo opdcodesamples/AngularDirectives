@@ -8,6 +8,7 @@ import { BasicHighlightDirective } from './basic-highlight/basic-highlight.direc
 import { HostListenerHighlightDirective } from './basic-highlight/hostlistener-highlight.directive';
 import { HostListenerFontColorDirective } from './basic-highlight/hostlistener-fontcolor.directive';
 import { HostBindingHighlightDirective } from './basic-highlight/hostbinding-highlight.directive';
+import { UnlessDirective } from './unless.directive';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HostBindingHighlightDirective } from './basic-highlight/hostbinding-hig
     BasicHighlightDirective,
     HostListenerHighlightDirective,
     HostListenerFontColorDirective,
-    HostBindingHighlightDirective
+    HostBindingHighlightDirective,
+    UnlessDirective
   ],
   imports: [
     BrowserModule,

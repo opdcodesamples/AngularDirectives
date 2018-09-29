@@ -41,6 +41,14 @@
               {{ number }}
             </li>
         </div>
+
+        <div *appUnless="onlyOdd">
+            <p> The same list is now rendered through a structural directive *appUnless </p>
+            <li
+              class="list-group-item" *ngFor="let number of evenNumbers" [ngClass]="{ even: number % 2 == 0}">
+              {{ number }}
+            </li>
+        </div>
         
       </ul>
 
@@ -60,6 +68,15 @@
         [highlightColor]="'green'" >
         Style me with host binding and listener directive style...
       </p>
+
+      <!--- add switch; bind ngSwitch as a property -->
+      <div [ngSwitch]="mySwitchValue">
+        <p *ngSwitchCase="5">Switch value is 5</p>
+        <p *ngSwitchCase="15">Switch value is 15</p>
+        <p *ngSwitchCase="25">Switch value is 25</p>
+        <p *ngSwitchDefault>Switch Default value is 60</p>
+      </div>
+
     </div>
   </div>
 </div>
